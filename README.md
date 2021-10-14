@@ -1,2 +1,2 @@
 # Rayleigh-Guan.github.io
-blog
+i am writing a blog
