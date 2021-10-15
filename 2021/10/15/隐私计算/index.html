@@ -26,8 +26,14 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3pye0cpwij80.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.b2awo8th3ok.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.188v9au031z4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.5jul0st10r40.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3lvvhn39cvi0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.2kd1oz5e92g0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.4z6alq75yxc0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3j3mzbni50w0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.55kzufltuyc0.png">
 <meta property="article:published_time" content="2021-10-15T03:18:13.000Z">
-<meta property="article:modified_time" content="2021-10-15T08:09:37.752Z">
+<meta property="article:modified_time" content="2021-10-15T09:31:20.700Z">
 <meta property="article:author" content="Rayleigh Guan">
 <meta property="article:tag" content="隐私计算">
 <meta name="twitter:card" content="summary">
@@ -295,19 +301,69 @@
 
 <h2 id="为什么需要隐私计算？"><a href="#为什么需要隐私计算？" class="headerlink" title="为什么需要隐私计算？"></a>为什么需要隐私计算？</h2><p>​    从社会现状讲：一方面，当前企业对用户的隐私数据处于滥采集、滥用的状态，通过对这些隐私数据的分析不仅可以预测一个人的位置轨迹，甚至可以挖掘出性取向在内的隐私信息，对用户的生命和财产安全造成威胁，并且每年都会发生企业用户信息大规模泄漏的情况。因此隐私计算的出现可以增强数据流通过程对个人标识、用户隐私和数据安全的保护；另一方面，全球数据总量呈指数级增长，海量的数据散落在不同的企业、机构的手中，导致形成了“数据孤岛”现象。多方的数据协作已经成为当下挖掘数据价值的新兴重要路径。但传统的方式无法消除数据持有方对商业机密泄漏、商业利益分配等方面的信任鸿沟，隐私计算技术为数据的融合应用和价值释放提供了新的解决思路。</p>
 <p>​    从国家层面讲：数字经济蓬勃发展，数据安全合规的问题日益严重，为保护公民隐私，我国数据立法进程不断加快，尤其强调数据应用过程中的数据安全。例如欧盟出台《通用数据保护条例 》GDPR、中国出台《个人信息保护法草案》、美国出台《国家安全与个人数据保护法提案》NSPDPA。</p>
-<h1 id="隐私计算的基本技术体系："><a href="#隐私计算的基本技术体系：" class="headerlink" title="隐私计算的基本技术体系："></a>隐私计算的基本技术体系：</h1><p>目前主流的隐私计算技术分为三大方向：</p>
+<h1 id="隐私计算的基本技术体系"><a href="#隐私计算的基本技术体系" class="headerlink" title="隐私计算的基本技术体系"></a>隐私计算的基本技术体系</h1><p>目前主流的隐私计算技术分为三大方向：</p>
 <p>​    第一类是以安全多方计算、同态加密等为代表的基于密码学的隐私计算技术，这类技术的思想是通过设计特殊的加密协议或算法，在处理和分析前对数据进行转换，从而支持在加密数据之上直接进行计算。</p>
 <p>​    第二类是以联邦学习为代表的人工智能和隐私保护技术融合衍生的技术，即在分布式的情况下对数据进行处理和分析。</p>
 <p>​    第三类是以可信执行环境为代表的基于可信硬件的隐私计算技术。</p>
-<h2 id="安全多方计算："><a href="#安全多方计算：" class="headerlink" title="安全多方计算："></a>安全多方计算：</h2><h3 id="百万富翁问题："><a href="#百万富翁问题：" class="headerlink" title="百万富翁问题："></a>百万富翁问题：</h3><p>​        该问题由图灵奖获得者姚期智院士于1982年通过提出，指的是有两个百万富翁相比较谁更加富有，但是都不想让对方知道自己具体有多少钱。在没有可信第三方的情况下如何进行？</p>
+<h2 id="安全多方计算"><a href="#安全多方计算" class="headerlink" title="安全多方计算"></a>安全多方计算</h2><h3 id="百万富翁问题"><a href="#百万富翁问题" class="headerlink" title="百万富翁问题"></a>百万富翁问题</h3><p>​        该问题由图灵奖获得者姚期智院士于1982年通过提出，指的是有两个百万富翁相比较谁更加富有，但是都不想让对方知道自己具体有多少钱。在没有可信第三方的情况下如何进行？</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.b2awo8th3ok.png" alt="image"></p>
-<h3 id="安全多方计算的概念"><a href="#安全多方计算的概念" class="headerlink" title="安全多方计算的概念"></a>安全多方计算的概念</h3><p>​        安全多方计算由图灵奖获得者姚期智院士于1982年通过提出和解答百万富翁问题而创立，是指在无可信第三方的情况下，多个参与方共同计算一个目标函数，并且保证每一方仅获取自己的计算结果，无法通过计算过程中的交互数据推测出其他任意一方的输入数据。</p>
-<p>​        1986 年姚期智院士提出的针对两方计算的混淆电路方法成为构建通用 SMPC 协议的经典方案之一。之后Goldreich在1987年对安全多方计算（Secure Multi-Party Computation）进行了讨论，提出了可以计算任意函数的计算意义下安全的安全多方计算协议。 Goldreich 还从理论上证明了可以通过通用电路(Universal Circuit)估值来实现所有的安全多方计算协议。其后于1988年，Goldreich对安全多方计算进行了总结和安全性定义。之后在1989年，Beaver等人研究了信息论安全模型下的安全多方科学计算问题，提出了可以实现信息论安全的，复杂程度为常数轮的安全多方算数运算协议。简化的MPC模型如下图所示：</p>
+<h3 id="安全多方计算的概念"><a href="#安全多方计算的概念" class="headerlink" title="安全多方计算的概念"></a>安全多方计算的概念</h3><p>​        安全多方计算（Secure Multi-Party Computation）由图灵奖获得者姚期智院士于1982年通过提出和解答百万富翁问题而创立，是指在无可信第三方的情况下，多个参与方共同计算一个目标函数，并且保证每一方仅获取自己的计算结果，无法通过计算过程中的交互数据推测出其他任意一方的输入数据。</p>
+<p>​        1986 年姚期智院士提出的针对两方计算的混淆电路方法成为构建通用 SMPC 协议的经典方案之一。之后Goldreich在1987年对安全多方计算进行了讨论，提出了可以计算任意函数的计算意义下安全的安全多方计算协议。 Goldreich 还从理论上证明了可以通过通用电路(Universal Circuit)估值来实现所有的安全多方计算协议。其后于1988年，Goldreich对安全多方计算进行了总结和安全性定义。之后在1989年，Beaver等人研究了信息论安全模型下的安全多方科学计算问题，提出了可以实现信息论安全的，复杂程度为常数轮的安全多方算数运算协议。简化的MPC模型如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.188v9au031z4.png" alt="image"></p>
 <p>​    </p>
 <p>​    安全多方计算是多种密码学基础工具的综合应用，经典的安全多方计算构造方式有混淆电路、秘密分享、不经意传输等。现在的部分安全多方计算协议也采取了同态加密、零知识证明等密码学算法。有时也与可信执行环境等基于硬件的隐私计算技术结合，提供更加安全的方案。</p>
 <p>​    安全多方计算能够在不泄露任何隐私数据的情况下让多方数据共同参与计算，然后获得准确的结果，可以使多个非互信主体在数据相互保密的前提下进行高效数据融合计算，使得数据的所有权和数据使用权的相互分离。</p>
 <p>​    但是安全多方计算目前面临：密码学复杂运算过程造成的计算性能问题，部分原因是跨网络传送加密数据会产生延迟，因此还受到网络带宽方面的制约。不同技术间的加密数据不能互通造成新的数据孤岛问题。</p>
+<h3 id="安全多方计算中涉及到的技术"><a href="#安全多方计算中涉及到的技术" class="headerlink" title="安全多方计算中涉及到的技术"></a>安全多方计算中涉及到的技术</h3><h4 id="混淆电路（Garbled-Circuit）"><a href="#混淆电路（Garbled-Circuit）" class="headerlink" title="混淆电路（Garbled Circuit）"></a>混淆电路（Garbled Circuit）</h4><p>​     该协议思想起源于姚期智院士针对百万富翁问题提出的混淆电路解决方案，因此也被称为“姚氏电路”。混淆电路使用布尔电路构造安全函数进行计算，保证一方输入不会泄露给其他方，计算出结果并能指定结果由那方获得或者是两方以分片形式共有。</p>
+<p>​    混淆电路的核心思想是将任何函数的计算问题转化为由“与”、“或”、“非”门组成的布尔逻辑电路，通过加密和扰乱电路的真值表来掩盖信息，从而实现电路的正常输出而又不泄露计算参与方的私有信息。以最经典的YAO GC为例子即两个参与方：一个是电路混淆方，一个是电路计算方，并且通过AES等对称加密算法进行加密、除此之外扰乱是以门为单位的，下面举一个经典例子：</p>
+<img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.5jul0st10r40.png" alt="image" style="zoom:200%;" />
+
+<p>​    用户A首先进行混淆电路的构造：给每一条线路生成两个密钥，K0,a代表用户A的输入为0，其它符号的意思类似。然后用户A构造加密真值表并打乱顺序，这就是前面说到的混淆电路的核心思想，在该例子中对应的真值表为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3lvvhn39cvi0.png" alt="image"></p>
+<p>随机扰乱后的真值表为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.2kd1oz5e92g0.png" alt="image">    </p>
+<p>然后用户A将打乱后的真值表发送给B并且通过不经意传输将K<sub>0,b</sub> K<sub>1,b</sub>也发送过去，用户B根据收到的内容进行电路计算，将解密后的结果发送给用户A，这样就在没有透露实际参与计算数字的情况下完成了一次计算。</p>
+<p>姚氏电路是第一个安全两方计算协议，后续大多数基于混淆电路技术实现的安全多方计算协议都是由姚氏混淆电路进行扩展的。比较常⻅有GMW/CCD/BGW/BMR等,这些协议将姚氏协议支持的两方安全计算扩展到多方安全计算;将布尔电路扩展到算术电路;将安全模型由半诚实模型扩展到恶意模型，以抵抗一定数量恶意敌手攻击。而这些基于姚氏混淆电路进行扩展的协议与方法，大多已不再使用混淆真值表的做法，只保留电路的形式（混淆真值表的计算成本太高，目前通常通过秘密分享和不经意传输的方式取代例如GMW协议）。</p>
+<p>由于任何安全计算函数都可以转换成对应的布尔电路，因此该技术可以实现各种计算，常用于通用计算场景，其只需要一个常数通信轮数，该轮数独立于电路深度。非对称加密的次数取决于输入数据的大小（OT是一次公钥加密操作），对称加密次数取决于电路门的数量。总通信量取决于电路规模，因此混淆电路的方法主要针对于布尔电路（算术电路的混淆导致电路规模增长过快），但大多数情况下混淆电路的规模都不会很小，因此计算过程中的通信量会比较大，适用于高带宽高延迟的场景。</p>
+<p>目前针对混淆电路的改进方向有两个：一方面:电路优化(circuit optimization)，主要是减少编译后电路的规模，常用技术有free -xor/Garbled row reduction/Circuit simplification等;另一方面:执行阶段优化，常用的技术有fast table lookup(减少解密混淆真值表次数)和pipelined circuit execution(将原来电路的产生与执行两阶段转换成一个阶段，一边产生一边执行电路，这样可以提高安全计算的效率)。</p>
+<h4 id="秘密分享（Secret-Sharing）"><a href="#秘密分享（Secret-Sharing）" class="headerlink" title="秘密分享（Secret Sharing）"></a>秘密分享（Secret Sharing）</h4><p>​    该协议最早由Shamir和Blakley在1979年提出。是指将秘密信息拆分成若干秘密份额并分发给参与者分别保存，以此来达到风险分散的目的。秘密分享协议通常由秘密分割算法和秘密重组算法构成，包含秘密分发者、秘密份额持有者还有接收者三类角色。秘密分发者持有秘密信息并且负责执行秘密分割算法，并将秘密份额分发给秘密份额持有者。接收者是试图重组秘密信息的一方。当接收者希望重组秘密信息时，将从一组授权的秘密份额持有者中收集秘密份额，并执行秘密重组算法计算秘密信息，当有充足的秘密份额就可以重新恢复出秘密信息。但秘密分享的价值不仅限于拆分和还原，它的真正价值在于处于分裂态可以运算，而运算的结果在多方参与的情况下可以还原即“同态”的性质，最经典的Shamir秘密分享协议具有加法同态的性质。秘密共享的上述特征，使得它在实际中得到广泛的应用，包括通信密钥的管理，图像加密，投票选举等。</p>
+<p>​    基于组合数学的秘密分享协议：假设n个人中至少有m个才能恢复密文，那么需要将密文拆分为C(n,m-1)份，每个人持有C(n-1,m-1份。</p>
+<p>​    基于多项式的秘密分享协议：将密文设置为多项式的某个点(一般为与y轴的交点，即f(0))，然后根据想要让多少人才能恢复出来，设置成对应的几次多项式（2个人就是直线，3个人就二次曲线，以此类推）。</p>
+<p>​    一个例子：三个人A,B,C进行投票，最终结果只想让被投票者S知道，假设赞成为1，反对为0，本轮投票结果为1，1，0。因此对于S来说这是一个（3，3）的问题。所以需要构造二次曲线多项式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.4z6alq75yxc0.png" alt="image"></p>
+<p>​    则对于S来说需要的密钥为：</p>
+<p>​    <img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3j3mzbni50w0.png" alt="image"></p>
+<p>​    由于ABC彼此之间都不知道对方的投票结果，但又需要联合计算得出总的投票结果，所以ABC各自都构建了各自的多项式，并且将自己的密钥成分分发给其他两方。但有一点需要约定，在进行密钥分享时，ABC选取的点横坐标必须是一致的，比如选取x=1,x=2和x=3这三个点。比如把x=1的情况都发给A，x=2的情况都发给B，x=3的情况都发给C，这样ABC分别计算出fs(1)，fs(2)，fs(3)，发给S，S就可以算出结果。    </p>
+<p>​    基于秘密分享的安全多方计算具有计算量小、通信量较低的优点，其通信轮数呈线性关系，因此通常情况通信轮数较多。可以高效的实现加法、乘法、比较等算术运算，但是难以高效进行浮点数运算。通信量少适合低延迟网络。能实现联合统计、建模、预测等多种功能。</p>
+<p>​    目前一些主流的安全多方计算解决方案如（secureML）大多采用的方式是将二者结合，以秘密分享的形式实现加法、减法等简单运算，以混淆电路的方式实现sigmod等复杂的运算。</p>
+<h4 id="不经意传输（Oblivious-Transfer）"><a href="#不经意传输（Oblivious-Transfer）" class="headerlink" title="不经意传输（Oblivious Transfer）"></a>不经意传输（Oblivious Transfer）</h4><p>​    该协议由Rabin于1981年首次提出，最初的不经意传输是“1 out 2不经意传输“，后来经发展成为安全多方计算的重要组成部分，一般被称为 “1 out n不经意传输”，指数据发送方有n个数据，数据接收方接收其选定的一个数据，且不能获取其他数据，同时数据发送方无法知道接收方的选择。是混淆电路设计的基础构件，常由RSA等非对称加密算法构造。</p>
+<p>​    基于公钥密码体制的密码学基本协议，是安全多方计算的基石。最基本的二选一（1-out-of-2）OT 协议的例子如下：假设接收者希望知道结果M1，但不希望发送人知道他想要的是M1。</p>
+<p>​    1、发送者生成两对不同的公私钥，并公开两个公钥S1及S2。</p>
+<p>​    2、接收者会生成一个随机数k，再用S1，对k进行加密，传给发送者。</p>
+<p>​    3、发送者用他的两个私钥S1及S2对这个加密后的k进行解密，用S1解密得到随机数k1，用s2解密得到随机数k2。k1和k相等，而k2则为一无关的随机数。但发送者不知道接收人加密时用的哪个公钥，因此他不知道他算出来的哪个k正确</p>
+<p>​    4、发送者把M1和k1及M2和k2分别进行异或，把两个异或值传给接收者。接收者只能算出M1而无法推测出M2，同时发送人也无法知道他能算出哪一个结果。</p>
+<h4 id="同态加密（Homomorphic-Encryption）"><a href="#同态加密（Homomorphic-Encryption）" class="headerlink" title="同态加密（Homomorphic Encryption）"></a>同态加密（Homomorphic Encryption）</h4><p>​    该技术在1978年由Ron Rivest、Leonard Adleman和Michael L. Dertouzo提出，允许在加密之后的密文上直接进行计算，且计算结果解密后正好与明文的计算结果是相同的。第一个构造出全同态加密的Craig Gentry认为，同态加密的本质是“A way to delegate processing of your data, without giving away access to it.”。同态加密的简化过程由下图所示：</p>
+<p>​    <img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.55kzufltuyc0.png" alt="image"></p>
+<p>​    目前已发展出各种部分同态加密(Somewhat Homomorphic Encryption)和全同态加密(Fully Homomorphic Encryption)算法。同态加密算法以通信量小、通信轮数少的特点，已在安全多方计算、联邦学习、区块链等存在数据隐私计算需求的场景落地应用。</p>
+<p>​    目前的同态加密实现多为非对称加密算法，即所有知道公钥的参与者都可以加密、执行密文计算，但只有私钥持有者可以解密。</p>
+<p>​    部分同态加密：只能支持有限的密文计算次数，例如 Paillier支持密文间的加法运算， 但是不支持密文间的乘法运算;BGN能够支持无限次密文间的加法 运算，但是只能支持一次密文间的乘法运算。[由于有限计算次数的局限性，并不能完全基于部分同态加密实现一个隐私计算方案，因此多用于实现某个子功能，比如在联邦学习中实现聚合过程]。</p>
+<p>​    全同态加密方案：对密文在计算次数上没有限制。2009年Gentry 首次提出基于理想格的全同态加密方案。2017年提出了支持近似小数计算的CKKS方案。理论上，是完全可以基于FHE设计一个隐私计算方案，但是FHE的计算代价仍然比较高。</p>
+<p>​    同态加密局限性主要体现于：在分析人员希望进行任意计算的情况下不适合使用同态加密。虽然 PHE 通常被使用例如用于安全数据库查询或委托计算，但 SHE 和 FHE 是当前正在进行的研究，最实用的 SHE 和 FHE 方案基于所谓的基于格的构造，其中研究集中于有效的编码和噪声管理技术。这种类型的加密方案依赖于噪声加密，每次加密操作都会增加此类噪声，如果噪声超过某个阈值，解密将失败。与未加密数据计算相比，同态加密在计算上极为昂贵且吞吐量较低。加密可能会导致数据量大增，这可能会导致严重的带宽问题。同样，计算需要表示为多项式，这在实践中可能是一个限制。对于 FHE，运行时间随着操作次数（加法或乘法）的增加而急剧增加，所以本质上讲最大的缺点就是速度不够快。</p>
+<h4 id="零知识证明（Zero-Knowledge-Proof）"><a href="#零知识证明（Zero-Knowledge-Proof）" class="headerlink" title="零知识证明（Zero-Knowledge Proof）"></a>零知识证明（Zero-Knowledge Proof）</h4><p>​    由S.Goldwasser、S.Micali及C.Rackof在20世纪80年代初首先提出，指一方（证明者）向另一方（验证者）证明一个陈述是正确的，而无需透露除该陈述是正确的之外的其它信息。零知识证明本质上是一种两方或多方的协议，两方或多方通过一系列交互完成生成证明和验证。</p>
+<p>​    一种零知识证明的协议方法需要具备以下三条性质：</p>
+<p>​    1、完备性（Completeness）：若一个证明方确实掌握了某论断的答案，则他肯定能找到方法向验证方证明他手中掌握的数据的正确性，即真的假不了。</p>
+<p>​    2、可靠性（Soundness）：若一证明方根本不掌握某论断的答案，则他无法（或只能以极低概率）说服验证方他手中所谓答案的准确性，即假的真不了。</p>
+<p>​    3、零知识性（Zero-knowledgeness）：验证方除了知道证明的结果外，对其他信息一无所知。</p>
+<p>​    零知识证明构造通常可以分为三部分：</p>
+<p>​    1、证明方先根据论断内容向验证方发个交底材料，这个样例论断需要是随机的或加密的；</p>
+<p>​    2、验证方随机生成一个challenge，发给证明方；</p>
+<p>​    3、证明方根据该试探和交底材料生成证明信息发给验证方。验证方自己将信息和交底材料一合计，判断证明方是否通过了该试探。</p>
+<p>​    第一步的交底材料是非常必要的，它有两个作用：一是可以防止证明方根据试探的内容临时造假；二是可以帮助证明方掩盖敏感信息，保证证明过程的零知识性。第二步的challenge也必须是随机的，否则如果证明方能提前知道试探的内容，那即便他不知道原论断背后的答案他也能提前准备好交底材料和返回的信息。最后，这个过程必须重复多次，因为通过一次或少数试探可能是运气。</p>
+<p>​    以上是通常的交互式零知识证明，但非交互式的零知识证明目前应用的更加广泛。非交互的零知识证明要求证明方自己生成challenge。但若如果challenge的内容可以由证明方提前知道，那么就给了证明方造假的余地。因此既要让证明方能自己生成challenge，又要让证明方无法提前预知challenge。Fiar-Shamir启发法就解决了这个问题，它的思想是证明方将连带交底材料在内的所有已知信息都做一个哈希，并以哈希值作为challenge，生成证明，一起发给验证方。验证方也会验证该哈希值是否正确。如此一来，challenge一方面可以由证明方自己生成，另一方面又因为和其他信息绑定了而无法提前预知。</p>
+<p>​    Zk-snarks就是一个非交互式零知识证明的例子，其思想是任何有限程序都能转换为多项式，这个多项式可以是单变量的，也可以是多变量的。</p>
+<p>​    例如如下函数：</p>
+<p>​    </p>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p>[1]<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144847471">https://zhuanlan.zhihu.com/p/144847471</a></p>
 <p>​    </p>
 
       
@@ -320,7 +376,7 @@
         <p><span>Title:</span><a href="/2021/10/15/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">隐私计算</a></p>
         <p><span>Author:</span>Rayleigh-Guan</p>
         <p><span>Created:</span>2021-10-15, 11:18:13</p>
-        <p><span>Updated:</span>2021-10-15, 16:09:37</p>
+        <p><span>Updated:</span>2021-10-15, 17:31:20</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/10/15/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" title="隐私计算">https://rayleigh-guan.github.io/2021/10/15/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/</a>
             <span class="copy-path" data-clipboard-text="From https://rayleigh-guan.github.io/2021/10/15/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -339,7 +395,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">隐私计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">隐私计算的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">为什么需要隐私计算？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">隐私计算的基本技术体系：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A4%9A%E6%96%B9%E8%AE%A1%E7%AE%97%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">安全多方计算：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">百万富翁问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A4%9A%E6%96%B9%E8%AE%A1%E7%AE%97%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.2.</span> <span class="toc-text">安全多方计算的概念</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">隐私计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">隐私计算的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">为什么需要隐私计算？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text">隐私计算的基本技术体系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A4%9A%E6%96%B9%E8%AE%A1%E7%AE%97"><span class="toc-number">2.1.</span> <span class="toc-text">安全多方计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E4%B8%87%E5%AF%8C%E7%BF%81%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.1.</span> <span class="toc-text">百万富翁问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A4%9A%E6%96%B9%E8%AE%A1%E7%AE%97%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.2.</span> <span class="toc-text">安全多方计算的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A4%9A%E6%96%B9%E8%AE%A1%E7%AE%97%E4%B8%AD%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">2.1.3.</span> <span class="toc-text">安全多方计算中涉及到的技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B7%E6%B7%86%E7%94%B5%E8%B7%AF%EF%BC%88Garbled-Circuit%EF%BC%89"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">混淆电路（Garbled Circuit）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%98%E5%AF%86%E5%88%86%E4%BA%AB%EF%BC%88Secret-Sharing%EF%BC%89"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">秘密分享（Secret Sharing）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E7%BB%8F%E6%84%8F%E4%BC%A0%E8%BE%93%EF%BC%88Oblivious-Transfer%EF%BC%89"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">不经意传输（Oblivious Transfer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%EF%BC%88Homomorphic-Encryption%EF%BC%89"><span class="toc-number">2.1.3.4.</span> <span class="toc-text">同态加密（Homomorphic Encryption）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E%EF%BC%88Zero-Knowledge-Proof%EF%BC%89"><span class="toc-number">2.1.3.5.</span> <span class="toc-text">零知识证明（Zero-Knowledge Proof）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">参考资料：</span></a></li></ol>
         
     </div>
     <style>
