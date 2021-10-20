@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Rayleigh Guan" />
+
+
+
+<meta name="description" content="双币模型：​    Axie与传统游戏的关键区别在于，区块链经济设计被用来奖励我们的玩家对生态系统的贡献。这种新的游戏模式被称为 “Play to Earn”。 ​    Axie必须是有趣的，只有拥有沉浸式的游戏体验，生态系统才能吸引足够的参与者，为网络积累价值。 ​    Axie Infinity中有两种Token：SLP和AXS，双币的模型循环如下图所示：  ​    对NFT的需求才创造">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AxieInfinity">
+<meta property="og:url" content="https://rayleigh-guan.github.io/2021/10/16/AxieInfinity/index.html">
+<meta property="og:site_name" content="Rayleigh‘s Blog">
+<meta property="og:description" content="双币模型：​    Axie与传统游戏的关键区别在于，区块链经济设计被用来奖励我们的玩家对生态系统的贡献。这种新的游戏模式被称为 “Play to Earn”。 ​    Axie必须是有趣的，只有拥有沉浸式的游戏体验，生态系统才能吸引足够的参与者，为网络积累价值。 ​    Axie Infinity中有两种Token：SLP和AXS，双币的模型循环如下图所示：  ​    对NFT的需求才创造">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3rgn53tdt120.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.685fpvctni40.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.355ypotaw1g0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.25wfuni3h4i.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.26otpu838hhc.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.303idkby1ew0.png">
+<meta property="article:published_time" content="2021-10-16T05:30:02.000Z">
+<meta property="article:modified_time" content="2021-10-18T02:25:12.375Z">
+<meta property="article:author" content="Rayleigh Guan">
+<meta property="article:tag" content="Gamefi经济模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3rgn53tdt120.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Rayleigh‘s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/weblogo.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>AxieInfinity | Rayleigh‘s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/mylogo.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:417024990@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/Rayleigh-Guan" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/417024990" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gamefi%E7%BB%8F%E6%B5%8E%E6%A8%A1%E5%9E%8B/" rel="tag">Gamefi经济模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/" rel="tag">跨链技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E8%B0%83/" rel="tag">选调</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" rel="tag">隐私计算</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/mylogo.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:417024990@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Rayleigh-Guan" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/417024990" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-AxieInfinity" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/10/16/AxieInfinity/" class="article-date">
+      <time datetime="2021-10-16T05:30:02.000Z" itemprop="datePublished">2021-10-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AxieInfinity
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/%E8%B0%83%E7%A0%94/">调研</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gamefi%E7%BB%8F%E6%B5%8E%E6%A8%A1%E5%9E%8B/" rel="tag">Gamefi经济模型</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="双币模型："><a href="#双币模型：" class="headerlink" title="双币模型："></a>双币模型：</h3><p>​    Axie与传统游戏的关键区别在于，区块链经济设计被用来奖励我们的玩家对生态系统的贡献。这种新的游戏模式被称为 “Play to Earn”。</p>
+<p>​    Axie必须是有趣的，只有拥有沉浸式的游戏体验，生态系统才能吸引足够的参与者，为网络积累价值。</p>
+<p>​    Axie Infinity中有两种Token：SLP和AXS，双币的模型循环如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.3rgn53tdt120.png" alt="image"></p>
+<p>​    对NFT的需求才创造出对AXS和SLP等货币的需求，所以对于一个经济的健康发展，要创造出更多的促使玩家持有NFT的理由（Also keep in mind that demand for Axies is ultimately what also drives demand for SLP (and AXS), so creating more reasons to own Axies and making it easier for us to grow are important in a a healthy economy.）[2]</p>
+<span id="more"></span>  
+
+<h3 id="SLP（Smooth-Love-Potions）："><a href="#SLP（Smooth-Love-Potions）：" class="headerlink" title="SLP（Smooth Love Potions）："></a>SLP（Smooth Love Potions）：</h3><p>白皮书中宣称Axie不会直接向玩家售卖SLP，也不会为SLP提供流动性（liquidity）[1]</p>
+<p>获得方式：只能通过在PvE冒险模式以及PvP竞技场玩游戏获得[1]</p>
+<p>SLP的用处：</p>
+<p>用于支付两个Axie NFT之间进行繁殖配对的费用：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.685fpvctni40.png" alt="image"></p>
+<p>繁殖之后，需要五天的时间来让新的Axie达到成熟状态，成熟之后可以看到该Axie的基因。</p>
+<p>每次繁殖需要花费的SLP的数量取决于该Axie被繁殖的次数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.355ypotaw1g0.png" alt="image"></p>
+<h3 id="AXS-Axie-Infinity-Shards"><a href="#AXS-Axie-Infinity-Shards" class="headerlink" title="AXS(Axie Infinity Shards):"></a>AXS(Axie Infinity Shards):</h3><p>AXS是Axie Infinity里的ERC-20治理代币，持有AXS，用户可以玩游戏，质押并参与关键的管理投票。</p>
+<p>下图展示了AXS生态的主要功能即所谓的游玩和质押参与投票：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.25wfuni3h4i.png" alt="image"></p>
+<p>AXS分配总量如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.26otpu838hhc.png" alt="image"></p>
+<p>AXS的总供应量为270,000,000。将在随着预先确定的时间表逐渐释放，从公开销售开始持续65个月。最初的流通供应量被设定为59,985,000，占总供应量的22.22%。</p>
+<h4 id="Play-to-Earn"><a href="#Play-to-Earn" class="headerlink" title="Play to Earn:"></a>Play to Earn:</h4><p>该部分的总供应量为54,000,000，占到总供应量得20%，所有奖励将在在4.5年内逐步解锁。</p>
+<p>方式：</p>
+<p>1、在竞技场赢得比赛</p>
+<p>2、赢得锦标赛</p>
+<p>3、升级自己的土地并与土地进行互动（会在Lunacia玩法玩法中进行详细描述）</p>
+<p>4、使用Axie Infinity市场</p>
+<p>5、繁殖Axies。</p>
+<p>6、后续新上线的其他方式。</p>
+<h4 id="Staking-and-Staking-Rewards："><a href="#Staking-and-Staking-Rewards：" class="headerlink" title="Staking and Staking Rewards："></a>Staking and Staking Rewards：</h4><p>该部分的总供应量为78,300,000，占到总供应量的29%，所有奖励将在5.5年内逐步解锁。</p>
+<p>用户可以质押自己的AXS代币以获得该部分的奖励，并获得社区去中心化治理委员会的投票权。</p>
+<h4 id="Ecosystem-Fund："><a href="#Ecosystem-Fund：" class="headerlink" title="Ecosystem Fund："></a>Ecosystem Fund：</h4><p>该部分的总供应量为21,600,000，占到总供应量的8%，所有奖励将在不少于4年的时间内逐步释放。</p>
+<p>生态系统基金最初将由Sky Mavis核心团队管理，其核心目的是为了发展Axie Infinity社区。随着时间的推移，生态系统基金将被整合到DAO中，投资人将能够投票决定谁应该获得资金。</p>
+<h4 id="Sky-Mavis（游戏开发团队）："><a href="#Sky-Mavis（游戏开发团队）：" class="headerlink" title="Sky Mavis（游戏开发团队）："></a>Sky Mavis（游戏开发团队）：</h4><p>Sky Mavis是Axie Infinity背后的团队，该部分的总供应量为56,700,000，占到总供应量的21%，所有奖励在超过4.5年的时间内逐步释放。</p>
+<h4 id="Advisors："><a href="#Advisors：" class="headerlink" title="Advisors："></a>Advisors：</h4><p>该部分总供应量为18,900,000，占到总供应量的7%，所有奖励将在不少于4年的时间内逐步释放。</p>
+<h4 id="Public-Sale："><a href="#Public-Sale：" class="headerlink" title="Public Sale："></a>Public Sale：</h4><p>该部分总供应量为29,700,000，占到总供应量的11%，该部分不锁仓。</p>
+<h4 id="Private-Sale："><a href="#Private-Sale：" class="headerlink" title="Private Sale："></a>Private Sale：</h4><p>该部分的总供应量为10,800,000，占到总供应量的4%，这些投资者以20%的折扣购买了AXS。20%的private sale代币将在AXS的public sale中解锁。其余的private sale代币将在未来2年内按季度解锁。</p>
+<h3 id="Lunacia玩法："><a href="#Lunacia玩法：" class="headerlink" title="Lunacia玩法："></a>Lunacia玩法：</h3><p>Lunacia，是Axie Infinity中的土地，玩家可以使用各种资源和工艺原料对自己的土地进行升级（升级所需的所有原材料均从游戏中获得[土地本身会定期产生一定的资源，或者通过PVE战胜Chimera也可以获得升级土地所需要的资源]），玩家可以在自己的土地上进行探索可以有机会获得AXS代币，或者使用自己的Axies NFT对公共区域的土地进行占领探索也有可能获得AXS代币[3]。需要注意的是Lunacia一共有90601块土地，每一块土地都是以NFT的形式存在，玩家之间可以自由的交易自己的土地，玩家可以持有的土地的类型和数量可以参考下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211015/image.303idkby1ew0.png" alt="image"></p>
+<p>​        值得一提的是这是land玩法的第一阶段，在Axie Infinity的描述中，第二阶段的目标是吧Lunacia变成一个虚拟世界，玩家可以使用Lunacia SDK创建游戏，并且把游戏部署在自己拥有的土地上。</p>
+<h3 id="Axie-用户规模及长期增长的可持续性"><a href="#Axie-用户规模及长期增长的可持续性" class="headerlink" title="Axie 用户规模及长期增长的可持续性"></a>Axie 用户规模及长期增长的可持续性</h3><h4 id="关键点："><a href="#关键点：" class="headerlink" title="关键点："></a>关键点：</h4><p>1、一个游戏需要玩家。通过简单地玩游戏，社区成员正在为网络增加价值，并应得到奖励，Axie是一种新型的游戏，它奖励玩家在玩游戏和发展生态系统方面所花费的时间和精力。</p>
+<p>2、Axie的货币经济由玩家100%拥有。游戏的开发者没有直接出售游戏物品或副本，而是专注于发展玩家对玩家的经济，并收取小额费用来实现货币化。Axies是由玩家使用游戏中的资源（SLP和AXS）创造的，并出售给新的/其他玩家。你可以把Axie看成是一个拥有真实经济的国家。AXS代币的持有者是获得税收的政府。游戏的发明者/建造者，Sky Mavis，持有所有AXS代币的20%。</p>
+<p>3、游戏资源和物品被NFT化，这意味着它们可以在开放的点对点市场上出售给任何人、任何地方。</p>
+<p>4、通过新的经验，如土地、小游戏，为Axies增加额外的效用。这也为Axies增加了效用，超越了它们在转瞬即逝的元气中的效用。</p>
+<p>5、对Axies的需求最终也推动了对SLP（和AXS）的需求，所以创造更多拥有Axies的理由，让我们更容易成长，对一个健康的经济来说是很重要的。</p>
+<p>6、广告费和赞助费。许多项目已经急于向Axie经济分发奖励和代币。到目前为止，MakerDAO、AAVE和Kyber Network已经向Axie玩家做了实验性的代币投放。Axie已经是世界上最大的了解如何使用区块链技术的人的社区；向这样的社区做广告有巨大的价值。</p>
+<p>7、同样重要的是，许多Axie玩家认为Axie是一个有趣的游戏和一个认识朋友的社交社区。超过50%的Axie玩家喜欢游戏性和社区，而不是经济方面。这些玩家重视通过Axie获得的乐趣和关系，远远高于任何潜在的收入；从长远来看，这些玩家使经济更加强大。</p>
+<p>8、拥有宠物的喜悦.乐趣、休息和放松.交朋友和寻找商业伙伴/导师.学习如何使用一项重要的新技术。没有必要参加付费的 “区块链课程”，赚钱。</p>
+<p>9、通过AXS，Axie Infinity将逐渐发展成为一个社区拥有的分散式组织。这个过程是随着AXS在玩家和押注者之间的分配而发生的，随着时间的推移，Sky Mavis的所有权会变得不那么集中。Sky Mavis团队将能够用锁定的玩赚和押注奖励分配进行投票。这将防止敌对者在发展的早期和关键阶段破坏生态系统。估计，到2023年10月，Sky Mavis将不再拥有多数票。</p>
+<p>10、对NFT的需求才创造出对AXS和SLP等货币的需求，所以对于一个经济的健康发展，要创造出更多的促使玩家持有NFT的理由，在未来我们希望奖励其NFT持有人5%的代币交易和NFT市场交易税。这种创新机制使的NFT持有者只需在他们的钱包中持有NFT，就能获得巨大的被动收入。</p>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p>[1]<a target="_blank" rel="noopener" href="https://whitepaper.axieinfinity.com/gameplay/breeding">https://whitepaper.axieinfinity.com/gameplay/breeding</a></p>
+<p>[2]<a target="_blank" rel="noopener" href="https://whitepaper.axieinfinity.com/gameplay/axie-population-and-long-term-sustainability">https://whitepaper.axieinfinity.com/gameplay/axie-population-and-long-term-sustainability</a></p>
+<p>[3]<a target="_blank" rel="noopener" href="https://whitepaper.axieinfinity.com/gameplay/land">https://whitepaper.axieinfinity.com/gameplay/land</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2021/10/16/AxieInfinity/">AxieInfinity</a></p>
+        <p><span>Author:</span>Rayleigh-Guan</p>
+        <p><span>Created:</span>2021-10-16, 13:30:02</p>
+        <p><span>Updated:</span>2021-10-18, 10:25:12</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2021/10/16/AxieInfinity/" title="AxieInfinity">https://rayleigh-guan.github.io/2021/10/16/AxieInfinity/</a>
+            <span class="copy-path" data-clipboard-text="From https://rayleigh-guan.github.io/2021/10/16/AxieInfinity/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2021/10/20/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/">
+                    跨链技术
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2021/10/15/%E9%80%89%E8%B0%83%E5%88%86%E4%BA%AB%E4%BA%A4%E6%B5%81%E4%BC%9A/">
+                    选调分享交流会
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%B8%81%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">双币模型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SLP%EF%BC%88Smooth-Love-Potions%EF%BC%89%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">SLP（Smooth Love Potions）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AXS-Axie-Infinity-Shards"><span class="toc-number">3.</span> <span class="toc-text">AXS(Axie Infinity Shards):</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Play-to-Earn"><span class="toc-number">3.1.</span> <span class="toc-text">Play to Earn:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Staking-and-Staking-Rewards%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">Staking and Staking Rewards：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ecosystem-Fund%EF%BC%9A"><span class="toc-number">3.3.</span> <span class="toc-text">Ecosystem Fund：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sky-Mavis%EF%BC%88%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%9B%A2%E9%98%9F%EF%BC%89%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">Sky Mavis（游戏开发团队）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Advisors%EF%BC%9A"><span class="toc-number">3.5.</span> <span class="toc-text">Advisors：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Public-Sale%EF%BC%9A"><span class="toc-number">3.6.</span> <span class="toc-text">Public Sale：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Private-Sale%EF%BC%9A"><span class="toc-number">3.7.</span> <span class="toc-text">Private Sale：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lunacia%E7%8E%A9%E6%B3%95%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">Lunacia玩法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axie-%E7%94%A8%E6%88%B7%E8%A7%84%E6%A8%A1%E5%8F%8A%E9%95%BF%E6%9C%9F%E5%A2%9E%E9%95%BF%E7%9A%84%E5%8F%AF%E6%8C%81%E7%BB%AD%E6%80%A7"><span class="toc-number">5.</span> <span class="toc-text">Axie 用户规模及长期增长的可持续性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">关键点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+
+
+    
+        <section id="comments" style="margin: 2em; padding: 2em; background: rgba(255, 255, 255, 0.5)">
+    <div id="vcomment" class="comment"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@1.2.0-beta1/dist/Valine.min.js"></script>
+    <script>
+      new Valine({
+        el: '#vcomment',
+        notify: 'true',
+        verify: 'true',
+        app_id: "dKKUohnqbQTf4UXnuYuUgqwa-gzGzoHsz",
+        app_key: "YnG4XecexqwSglQGzuqViNBs",
+        placeholder: "Just go go!",
+        avatar: "mp"
+      });
+    </script>
+</section>
+```
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2021/10/20/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/" title="Pre: 跨链技术">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2021/10/15/%E9%80%89%E8%B0%83%E5%88%86%E4%BA%AB%E4%BA%A4%E6%B5%81%E4%BC%9A/" title="Next: 选调分享交流会">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/10/20/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/">跨链技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/16/AxieInfinity/">AxieInfinity</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/15/%E9%80%89%E8%B0%83%E5%88%86%E4%BA%AB%E4%BA%A4%E6%B5%81%E4%BC%9A/">选调分享交流会</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/15/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">隐私计算</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2021 Rayleigh Guan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
