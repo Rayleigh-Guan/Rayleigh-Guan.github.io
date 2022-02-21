@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Rayleigh Guan" />
+
+
+
+<meta name="description" content="Layer的概念：Layer是借鉴计算机网络通信体系架构的OSI模型，将区块链逻辑机构分为三层—-Layer0、Layer1、Layer2。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Layer2技术方案调研">
+<meta property="og:url" content="https://rayleigh-guan.github.io/2021/11/11/layer2/index.html">
+<meta property="og:site_name" content="Rayleigh‘s Blog">
+<meta property="og:description" content="Layer的概念：Layer是借鉴计算机网络通信体系架构的OSI模型，将区块链逻辑机构分为三层—-Layer0、Layer1、Layer2。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.382fn8iditm0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.4gwr2iqmd120.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.6xqv26v296c0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.6w5y7zipjmk0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211111/image.1hy0s30p728w.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211111/image.49zjf9aznce0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211111/image.6zahth2onjk0.png">
+<meta property="article:published_time" content="2021-11-11T08:24:28.000Z">
+<meta property="article:modified_time" content="2021-11-15T15:06:59.206Z">
+<meta property="article:author" content="Rayleigh Guan">
+<meta property="article:tag" content="Layer2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.382fn8iditm0.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Rayleigh‘s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/weblogo.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Layer2技术方案调研 | Rayleigh‘s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/mylogo.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:417024990@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/Rayleigh-Guan" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/417024990" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gamefi%E7%BB%8F%E6%B5%8E%E6%A8%A1%E5%9E%8B/" rel="tag">Gamefi经济模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Layer2/" rel="tag">Layer2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Layer2%E8%90%BD%E5%9C%B0%E6%96%B9%E6%A1%88/" rel="tag">Layer2落地方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%BC%E8%BF%B0%E5%88%9D%E7%A8%BF/" rel="tag">综述初稿</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/" rel="tag">跨链技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E8%B0%83/" rel="tag">选调</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" rel="tag">隐私计算</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/mylogo.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:417024990@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Rayleigh-Guan" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/417024990" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-layer2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/11/11/layer2/" class="article-date">
+      <time datetime="2021-11-11T08:24:28.000Z" itemprop="datePublished">2021-11-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Layer2技术方案调研
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/%E8%B0%83%E7%A0%94/">调研</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layer2/" rel="tag">Layer2</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Layer的概念："><a href="#Layer的概念：" class="headerlink" title="Layer的概念："></a>Layer的概念：</h2><p>Layer是借鉴计算机网络通信体系架构的OSI模型，将区块链逻辑机构分为三层—-Layer0、Layer1、Layer2。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.382fn8iditm0.png" alt="image"></p>
+<span id="more"></span>  
+
+<h2 id="为什么需要扩容："><a href="#为什么需要扩容：" class="headerlink" title="为什么需要扩容："></a>为什么需要扩容：</h2><p>目前区块链系统普遍存在严重的性能可扩展性瓶颈：交易吞吐量不足。</p>
+<h2 id="当前不同层次的扩容方案："><a href="#当前不同层次的扩容方案：" class="headerlink" title="当前不同层次的扩容方案："></a>当前不同层次的扩容方案：</h2><p>Layer0的扩容方案是通过优化区块链底层数据传输协议提升区块链性能，不改变区块链的上层架构，是一种保留原有链生态规则的性能提升方案。</p>
+<p>Layer1的扩容方案即链上（On-Chain）扩容，通过优化、改进公链基本协议提升区块链性能。</p>
+<p>Layer2的扩容方案即链下（Off-Chain）扩容，不改变公链基本协议，本质是将原本由以太坊执行的计算<strong>转移到了链下</strong>，将以太坊作为安全性保障。由于计算被转移到了链下，需要存储在链上的数据量大幅减少，在降低交易成本的同时加快了交易速度。</p>
+<p>通过Layer2可以：</p>
+<p>为主链拓展性能：Layer2 的解决方案将复杂的交易运算打包到了链下进行运算，然后将运算结果反馈给链上；通过在链下将复杂交易的计算完成，大大提高了交易速度，同时由于链上只运算交易结果，从而实现了低 gas 费的交易结果。</p>
+<p>为主链拓展功能：Layer2 由于可以将更多更复杂的需求转移到链下进行，于是由于之前区块链主网发展的限制性，导致主网不能实现的一些功能都可以通过 Layer2 的方式在链下进行功能的扩展，这是 Layer2 生态位能够在 ETH2.0 升级之后能够存在的核心价值点和竞争力。</p>
+<h3 id="常见的扩容方案："><a href="#常见的扩容方案：" class="headerlink" title="常见的扩容方案："></a>常见的扩容方案：</h3><p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.4gwr2iqmd120.png" alt="image"></p>
+<h2 id="Layer2的常见扩容方案："><a href="#Layer2的常见扩容方案：" class="headerlink" title="Layer2的常见扩容方案："></a>Layer2的常见扩容方案：</h2><h3 id="状态通道（State-channels）："><a href="#状态通道（State-channels）：" class="headerlink" title="状态通道（State channels）："></a>状态通道（State channels）：</h3><p>状态通道的工作原理是链下开辟一个通道，用户通过在智能合约中锁定资产的方式，将链上资产转移到通道中，并在通道中进行资产交互。在通道内进行资产交互操作不会占用主链的资源，且无需耗费昂贵的交易费用，<strong>适用于一些高频小额支付场景</strong>，比如游戏场景。用户在离开通道时进行结算，再资产将转回主链。</p>
+<p>状态通道可以认为是闪电网络（lightning network）等支付通道泛化出来的形式，它们不仅可用于支付，还可用于在区块链上进行任意的“状态更新”，就像在智能合约内部进行更改一样。</p>
+<p>状态通道的基本流程：</p>
+<ol>
+<li>区块链的部分状态通过多个签名和部分智能合约锁定，所以这部分参与者必须要完全同意对方去更新它。</li>
+<li>参与者通过产生以及签名转账来自己更新状态，这最终会上传到区块链上，而不是直接在链上进行计算。每个新的更新会刷新之前的更新。</li>
+<li>最终，参与者将状态传回到区块链上，然后关闭状态通道，并且再次锁定状态(通常是按照和开始不同的设置)。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.6xqv26v296c0.png" alt="image"></p>
+<h4 id="特性和限制："><a href="#特性和限制：" class="headerlink" title="特性和限制："></a>特性和限制：</h4><p>1、需要质疑时间：</p>
+<p>​     想象Bob并没有给合约发送真实的最终状态，而是发送一份之前他赢了Alice的状态。但是合约本身无法知晓这是否是最新的状态。而质疑时间给了Alice一个机会向 合约证明Bob对最终状态撒了谎。如果有更近期的状态，她就会有一份已签名交易的副本，并且可以将其提供给 Judge合约。</p>
+<p>2、状态通道依赖于有效性：</p>
+<p>​    如果Alice在质疑时间内掉线了（可能是Bob渴望赢得奖品，破坏了她家的网络连接），她可能无法在质疑时间结束前做出回应。但是，Alice可以付费给其他人，让其保存一份她的状态副本，并作为她的权益代表，以保持系统的有效性。</p>
+<p>3、当参与者将在长时间内交换大量状态更新时，状态通道非常有用</p>
+<p>​      这是因为部署合约时创建一个通道会产生初始成本。但是一旦部署完成，该通道内每一个状态更新的成本都会非常低。</p>
+<p>4、状态通道最适于有一组确定参与者的应用程序</p>
+<p>​      这是因为合约必须始终知晓所有参与到给定通道的实体（比如，地址）。当然我们可以增加或删除用户，但是每次都需要更改合约。Uniswap 智能合约等没有明确所有者的对象无法使用状态通道</p>
+<p>5、状态通道有很强的隐私性</p>
+<p>​      因为一切都参与者之间的通道“内”发生，而不是公开广播并记录在链上。只有开头和结尾的交易必须公开。</p>
+<p>6、状态通道具有即时终结性</p>
+<p>​      这意味着只要双方都签署了一个状态更新，这个状态就可以被认为是最终状态。双方都有明确保证，如果有必要，他们可以将状态“强制执行”到链上。</p>
+<p>7、状态通道的使用范围仅限于加入通道的用户，无法向通道外的用户发送资金</p>
+<p>8、对接智能合约的灵活性受限制</p>
+<p>9、<strong>通道节点需要质押金额，由于质押金额的不同，非常容易形成不同的路由瓶颈而导致转账失败</strong>。</p>
+<p>10、交易手续费极低，从根本上比所有其他 layer2 技术的交易手续费低；水平扩展性强，加节点就能增加总系统容量，</p>
+<p>11、<strong>应用场景的局限性。</strong>状态通道适用范围有限，其主要应用于交易双方存在大量频繁密集的交易，这种情况下，两者可以开启一个状态通道进行支付。例如 Theta 中享受视频流服务的用户需要向提供带宽的服务方每隔一段时间就需要支付带宽费用，用户观看一部电影时，可能需要很多次支付，此时为了节约交易费，双方可以通过微支付通道来降低交易费，最终用户支付的费用只需要一笔交易就可以完成结算。但是如果 1 个人与 10000人中的每个人只进行一次交易，总共 10000 次的交易，每一笔交易都要支付交易费，此时状态通道无法节省交易费，而且每一笔交易的结算仍然需要上链，因此，它对于系统TPS 的提升有限也不利于提升系统的 TPS。</p>
+<p>12、无法适用于元宇宙交易。在元宇宙中，一个玩家并不知道何时会与那个玩家发起交易，而且玩家之间很少有高频次的交易，因此，这种情况下状态通道不可用。此外，如果是玩家的游戏装备类的NFT，买卖交易是一次性的，玩家需要即时结算后使用 NFT，这种情况下状态通道不是一个好的选择。</p>
+<p>代表：Celer Network、雷电网络、闪电网络、Connext、Counterfactual</p>
+<h3 id="侧链（Sidechains）："><a href="#侧链（Sidechains）：" class="headerlink" title="侧链（Sidechains）："></a>侧链（Sidechains）：</h3><p>侧链是一条独立的区块链，与主网并行且独立运行。它使用单独的共识机制，安全性不受 Layer1 保护。</p>
+<p>比特币中侧链是一种中心化的形式，这种侧链技术牺牲了中心化和安全性，提升效率。比特币侧链引入了可行第三方，这是侧链比较大的争议问题，因此，Plasma 的是为了最小化对区块链运营商的信任问题产生的。</p>
+<p><strong>目前的侧链技术虽然会遭受中心化的批评，但是其技术成熟度、性能方面是表现最好的。</strong></p>
+<p>代表：SKALE Network、</p>
+<h3 id="plasma："><a href="#plasma：" class="headerlink" title="plasma："></a>plasma：</h3><p>Plasma由Joseph Poon 和 Vitalik Buterin 提出。</p>
+<p>Plasma 链是一条独立的区块链，锚定到以太坊主链，<strong>是一种依赖于欺诈证明 (fraud proofs) 的扩容方案，类似于 Optimistic Rollups。但与 Optimistic Rollups 不同的是，</strong>Plasma 将数据可用性保存在链下<strong>。尽管是以太坊 L2 研究的最早领域之一，</strong>Plasma 的实现未能像其他更新的扩容方案那样获得足够的吸引力</p>
+<p><strong>Plasma 本质上是将计算和数据都转移到链下（即将资产从以太坊的主链上转移到了 Plasma 链上）</strong>，工作原理是在以太坊外先构建一条 Plasma 链，用户将资产从以太坊上转移至Plasma链，这个过程需要将主链资产发送至管理Plasma链的智能合约，随后该资产即可进入Plasma 链中进行交互。plasma子链允许拥有自己的共识协议。</p>
+<p>在 Plasma 链中，每隔一段时间，Plasma 链的操作者（验证者、运营商或节点）就会对该时间段内Plasma链的交易进行一次批量处理并生成 Merkle 树，相当于生成一个区块。操作者会将 Merkle 树的 Merkle 根返还给主链的 plasma 智能合约作为消费记录，还会将该 Merkle树中涉及某项账户交易的 SPV 证明发送给该资产当前的所有者。</p>
+<p>从其工作原理来看，Plasma和状态通道是有一定的相似性的。不过状态通道更多的是针对你想交易的那几个点，是两个人之间的交互，而它想要在一个大的库里面进行复杂的操作是一个很困难的事情。而 Plasma 可以在子链上进行各种形式的交易，调动智能合约，转账给多个人等等，非常灵活，不像 State Channel 一样，只有打开通道的人能用，任何人都可以随时进来。</p>
+<p>一旦确认执行者出现欺诈行为，则智能合约会罚没他的保证金。虽然说我们可以通过错误性证明，使得提供无效承诺的执行者在主链上遭到惩罚；但如果 Plasma 的执行者拒绝在主链上公开plasma上的区块信息数据，那么用户则无法取得构造出错误承诺的错误数据，就无法提供错误性证明，所以 Plasma 就存在数据不可用的问题，进而影响资产的控制权问题和安全问题。针对这个问题，Plasma 衍生出一些相应的方案，如延长资产从 layer2 退出的时间：当出现作恶行为，就能允许大量资产从 Plasma 链退出【因此需要挑战期】。每一个在子链上的节点，如果意识到子链有可能作恶，而且他自己没办法证明子链作恶的时候，这个机制能够允许参与者退出。参与者提交他最后的一个的可信证明，有多少余额，就把这个余额提现到主链上，保证资金的安全【MVP 设置了一个优先级的设计。每一笔进入 Plasma 的交易都会有一个优先的序号，高位是区块高度，然后是交易在区块里面的次序和这个 Output UTXO 在这个交易中的次序。这样就形成了一个全局唯一的序号，所有人按照这个序号退出。】并且由于回报Layer1的是merkel 树根因此对一般性的通用智能合约的支持性不够好</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211110/image.6w5y7zipjmk0.png" alt="image"></p>
+<p>Plasma存在的问题：</p>
+<p>（1）退出周期比较长，因为资产要先从主链转移到 Plasma 链上，Plasma 链进行交易后生成区块，然后返还给主链；当要推出时，需要先将资产从 Plasma 链上退出，这个过程需要很长的周期；一般是 7-14 天 .</p>
+<p>（2） Layer1 的安全性问题无法从根本上解决，由于资产从主链上先需要转移到 Plasma 链上，虽然验证的方法使用了带有奖励机制的欺诈证明方式，但仍然不能从根本上解决资产安全性的问题。</p>
+<p>（3）并没有从根本上解决交易效率的问题，因为 Plasma 的工作机制是每隔一段时间一次批量处理并生成 Merkle 树，那么如果遇到极端的行情或者情况，大量的用户在这个时间段内发起资产的提取操作，也就意味着大量的结果会发布到主链上，主链的拥堵问题仍然面临巨大的压力。因为从根本上来说 Plasma 并没有解决交易效率本质的问题。</p>
+<h3 id="Rollups："><a href="#Rollups：" class="headerlink" title="Rollups："></a>Rollups：</h3><p>一位化名为 Barry Whitehat 的用户在 GitHub 上公开了名为「roll_up」的方案。描述了一种新类型的第 2 层扩容解决方案：一个类似于 Plasma 的架构，并可「打包」交易，它无需依赖于对运营商的信任，打包的正确性可以通过使用一个SNARK 的链上证据来证明。</p>
+<p>Rollup 就是将多笔交易卷起来打包一块上传给 Layer1。交易数据等在 Layer1 上发布，但执行交易在 Layer1 之外。</p>
+<p>Rollup 方案是将链下大量的交易进行打包压缩，然后将压缩的数据发布到主链，所有发布到主链的压缩数据中包含了每笔交易的基本信息，这就保证了数据的可用性（可验证性），进而可以实现对操作者的免信任。</p>
+<p>由于 Rollup 的解决方案是通过返还压缩数据包（包含每笔交易的基本信息）来验证其交易的真实性问题，但是我们仍然不能保证每一个笔交易都是真实的，所以其依然存在中有一个核心的安全问题。因此针对这个核心的问题，出现了三种不同的解决方案，但本质来说其实两种方案，分别是<strong>基于「有效性证明」的 ZK Rollup 、基于「欺诈证明」的 Optimistic Rollup 和基于多轮交互式「欺诈证明」的 Arbitrum Rollup</strong>。</p>
+<p>目前有两种 Rollups：</p>
+<p>1、ZK Rollups，全称 Zero Knowledge Rollups，将数百笔交易在链下进行捆绑打包，并生成一个加密证明，<strong>该证明会被提交和发布在 Layer1 上面</strong>。<strong>链下执行 + 通过 zk-SNARKs 验证链上数据+提交链上数据 = ZK-Rollups</strong>。即此SNARK证明存在一系列由所有者正确签名的交易，这些交易以正确的方式更新了账户余额，并使得Merkle root从旧到新。因此，运营商不可能提交无效或操纵的状态。所以可以证明从状态哈希值等于h（S1）移到状态哈希值等于h（S2）的交易中存在一系列有效的交易，并且交易与提交到链上的数据相匹配。交易验证了ZK-SNARK是正确的，并在链上存储新的哈希树根h（S2）。 重要的是，它不会在状态中存储A的全部内容，而是保存在call data数据中，以便于将来可以提取。</p>
+<p>​    优点： 每次转账的费用很低。 比 Plasma 和 Optimistic Rollups 更快。 数据量更少带来更高的吞吐量和可扩展性。</p>
+<p>​    缺点：1）初始设置不去中心化 (STARK 中没有初始设置，snarks需要可信初始设置), </p>
+<p>​               2）量子计算可能构成未来的黑客威胁 (STARK 可以抗量子计算机) </p>
+<p>​               3）生成有效性证明在计算上很昂贵。这些 zk-SNARK 会在每个区块生成，生成时间可能长达 10 分钟，而每次验证的成本高达 350,000 gas，这大约占整个区块的 3.5%（在伊斯坦布尔升级前占到了 8%）</p>
+<p>​               4）此外，目前无法在 zk-Rollup 侧链上部署通用智能合约。目前正在开发专门的零知识虚拟机，如zkVM 和 ZEXE，但在与之交互时仍然需要大量的专门知识。在大多数情况下，zk-Rollup 限制了一般的可编程性。换句话说验证链路的构造没有一个通用的解决方案，所以目前没有很好的办法做到很广义的虚拟机逻辑，简单来说，zk-Rollup 必须对每一个用例定制；程序正确性的验证相对复杂，要对多项式 curcuit 做验证；二层打包节点负担重，成本高，计算零知识证明所需时间长，用户延迟的体验角度仍然比较差。对通用型的智能合约（例如 DeFi 应用）的支持不友好，不兼容EVM当前<strong>更适用于普通转账交易等应用场景</strong>。</p>
+<p>基于zk-rollups的项目有：loopring，polygon，hermez，zksync。</p>
+<p>2、Optimistic Rollups，乐观地假设所有交易都是有效的，所有的数据都存储在 Layer1 链上，因此 Optimistic Rollups 是安全和去中心化的，<strong>但是主链上的交易确认作为欺诈预防机制受到挑战期的影响， 需要很长的交易确认等待时间</strong>。</p>
+<p>那些刷新 Layer-2 状态的交易不会在链上被验证，只让主链存储一系列的历史状态根，添加了一个新的状态的一段时间（例如 1 周）后才将新状态最终敲定，也就是数据可用性放在链下。采用错误性证明（跟 Plasma 方案一样），对提交无效状态的执行者进行惩罚。其链下 OVM 虚拟机可以支持任意智能合约逻辑的实现，与以太坊 EVM 虚拟机搭配使用，开发者就可以用 Solidity 来写码，实现 dapp 和智能合约之间的无缝互操作性。它的缺点是安全问题，只有使用 1～2 周的错误性证明挑战期才足够安全。在挑战期过去以前，没有交易能被认为是确定的。</p>
+<p>由于 Optimistic Rollups 与以太坊主链平行运行，<strong>兼容于 EVM 和 Solidity</strong>，因此在以太坊 Layer1 上能做的事情都可以在 Optimistic Rollups 上进行，这也是和 ZK Rollup 的不同之处。<strong>链下执行 + 链上数据 + 欺诈证明 = Optimistic Rollups</strong>。</p>
+<ul>
+<li><strong>所有的交易数据都存储在 Layer 1 链上</strong>，意味着 Optimistic Rollups 是<strong>安全和去中心化</strong>的。</li>
+<li></li>
+</ul>
+<h3 id="validium："><a href="#validium：" class="headerlink" title="validium："></a>validium：</h3><p>Validium 类似于rollups，使用像 ZK-Rollops 这样的有效性证明，但数据并不存储在以太坊 Layer 1 主链上，而是将 Layer 2 的交易数据数据存在链下，用零知识证明来保证状态转换的有效性，并设立“数据可用性委员会”来保证链下数据的可用性；这意味着每条 Validum 链每秒可以处理 10k 笔交易，多条 Validum 链可以并行运行。但同时也在一定程度上使这种方案<strong>具有托管的性质</strong>(这意味着 Validiums 的运营商可以冻结或者没收用户的资金) 。<strong>链下执行 + 零知识证明 + 链下数据 = Validiums</strong>。</p>
+<p>使用validum的产品：deversiFi、Immutable X、Sorare。</p>
+<h3 id="valitions："><a href="#valitions：" class="headerlink" title="valitions："></a>valitions：</h3><p><strong>Volitions</strong> 是一种混合式扩容解决方案，<strong>让用户能够在「ZK-Rollup 模式」和「Validium 模式」之间进行选择</strong>。</p>
+<p>在实践中，这意味着 Volitions 的用户能够<strong>使交易在链下执行</strong>，同时<strong>可以选择链上数据可用性或者链下数据可用性</strong>，也即选择将数据可用性保存在以太坊 L1 链上或者在 Valildiums (链下)。</p>
+<p>产品有：starkware【不开源】衍生出：StarkNet、StarkEx【面向去中心化交易所】、Cairo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211111/image.1hy0s30p728w.png" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211111/image.49zjf9aznce0.png" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rayleigh-Guan/imageshub@master/20211111/image.6zahth2onjk0.png" alt="image"></p>
+<p>Rollup 具备链上数据可用性，因此中心化程度较高，Validium 需要机构作为监管方，因此去中心化程度不够</p>
+<p>Optimistic Rollup 的安全模型基于一个假设：至少存在1个诚实节点，会执行所有 OR 交易并在无效状态转换发布时主动提交错误性证明。由于活跃节点的数量存在上限，所以还是有可能会出现一些复杂的攻击，虽然概率非常小。另一边，零知识证明技术需要一个普遍性的可信任初始设置，因此如果该设置出现问题，ZK Rollup 的安全性也会打折扣。</p>
+<p>ZK-SNARK 技术相对更复杂。</p>
+<p>几乎所有在以太坊上可以执行的计算都可以在 Optimistic Rollup 上完成，包括智能合约的可组合性。ZK Rollup 目前只能进行简单的支付、转账和其他特定程序。</p>
+<table>
+<thead>
+<tr>
+<th>Layer2方案</th>
+<th>简介</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>状态通道</td>
+<td>链下开辟一个通道，用户通过在智能合约中锁定资产的方式，将链上资产转移到通道中，并在通道中进行资产交互</td>
+<td>1、高吞吐量 2、低成本，适合高频小额交易 3、提款确认时间短</td>
+<td>1、应用场景具有局限性。2、对NFT这一类非同质代币的效果较差。3、不支持公开参与，仅限于通道内用户使用，无法向通道外的用户发送资金。4、创建和结算通道的需要额外时间和成本，对于任意用户之间偶尔的一次性交易来说不划算。5、需要定期查看通道网络，或将此责任委托给其他人，以确保用户资金的安全。6、必须在开启通道时锁定资金。</td>
+</tr>
+<tr>
+<td>侧链</td>
+<td>侧链是一条独立的区块链，它与主网并行且独立运行。通过一个双向桥与主链相连。</td>
+<td>1、技术较为成熟。2、支持通用计算，大多兼容 EVM。3、提款确认时间短</td>
+<td>1、牺牲一定的去中心化。2、使用单独的共识机制，其安全性不使用单独的共识机制，其安全性不受 Layer 1 保护。</td>
+</tr>
+<tr>
+<td>Plasma</td>
+<td>是一条区块链，数据链下存储，使用欺诈证明解决纠纷。该方案目前基本已被放弃</td>
+<td>1、高吞吐量，低交易成本 2、适用于任意用户之间的交易</td>
+<td>1、资产确认时间为至少1周。2、需要定期查看该网络，或将此责任委托给其他人，以确保用户的资金安全。3、资产安全性问题无法从根本上解决。4、无法从根本上解决交易效率的问题，因为 Plasma 每隔一段时间一次批量处理并生成 Merkle 树，极端情况下，主链的拥堵问题仍然面临巨大的压力。</td>
+</tr>
+<tr>
+<td>Optimistic Rollups</td>
+<td>是一条区块链，数据链上存储，使用欺诈证明</td>
+<td>1、有OVM，兼容于 EVM 和 Solidity，通用计算支持性好。2、交易数据都存储在 Layer 1 链上，意味着安全和去中心化。</td>
+<td>1、资产确认时间为至少1周。2、由于活跃节点的数量存在上限，Optimistic Rollups的欺诈证明依旧可能存在风险。</td>
+</tr>
+<tr>
+<td>ZK-Rollups</td>
+<td>所有资金由主链智能合约持有，是一条区块链，数据链上存储，每个rollups区块生成零知识证明（snarks）验证交易。</td>
+<td>1、安全性高。2、去中心化。3、资产确认时间短。</td>
+<td>1、技术难度高。2、由于采用零知识证明通用计算支持性差，很难支持通用智能合约。3、生成零知识证明和验证零知识证明需要花费额外的计算资源和gas费，每笔交易目前测试结果需要承担273gas。4、由于生成零知识证明需要花费额外的计算资源，因此对于吞吐量较低的应用，使用价值不高。5、使用snarks，需要可信初值设置。</td>
+</tr>
+<tr>
+<td>validium</td>
+<td>是一条区块链，数据链下存储，使用零知识证明（starks）来保证状态转换的有效性，并设立“数据可用性委员会”来保证链下数据的可用性</td>
+<td>1、安全性高。2、资产确认时间短。3、使用starks，不需要可信初值设置。</td>
+<td>1、技术难度高。2、由于采用零知识证明通用计算支持性差，很难支持通用智能合约。3、生成零知识证明和验证零知识证明需要花费额外的计算资源和gas费，每笔交易目前测试结果需要承担273gas。4、由于生成零知识证明需要花费额外的计算资源，因此对于吞吐量较低的应用，使用价值不高。5、由于数据链下存储，为了保证可用性，Validium 需要机构作为监管方，引入了“数据可用性委员会”，因此去中心化程度不够。</td>
+</tr>
+</tbody></table>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p>[1]<a target="_blank" rel="noopener" href="https://www.fxtank.com/qukuailian/54613.html">https://www.fxtank.com/qukuailian/54613.html</a>. [状态通道扩容]</p>
+<p>[2]<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903743281070087[%E7%8A%B6%E6%80%81%E9%80%9A%E9%81%93]">https://juejin.cn/post/6844903743281070087[状态通道]</a></p>
+<p>[3]<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903743343820813">https://juejin.cn/post/6844903743343820813</a> [plasma]</p>
+<p>[4]<a target="_blank" rel="noopener" href="https://www.tuoniaox.com/news/p-376199.html[plasma+rollups]">https://www.tuoniaox.com/news/p-376199.html[plasma+rollups]</a></p>
+<p>[5]<a target="_blank" rel="noopener" href="https://www.jinse.com/blockchain/745163.html[zk-rollups]">https://www.jinse.com/blockchain/745163.html[zk-rollups]</a></p>
+<p>[6]<a target="_blank" rel="noopener" href="https://www.chaindd.com/3274523.html[rollups]">https://www.chaindd.com/3274523.html[rollups]</a></p>
+<p>[7]<a target="_blank" rel="noopener" href="https://ethfans.org/posts/optimistic-vs-zk-rollup-deep-dive[rollups]">https://ethfans.org/posts/optimistic-vs-zk-rollup-deep-dive[rollups]</a></p>
+<p>[8] <a target="_blank" rel="noopener" href="https://www.jinse.com/blockchain/1054349.html">https://www.jinse.com/blockchain/1054349.html</a> [zk不兼容evm]</p>
+<p>[9]<a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/231723888331.htm">https://www.chainnews.com/articles/231723888331.htm</a></p>
+<p>[10]<a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/641219253225.htm">https://www.chainnews.com/articles/641219253225.htm</a></p>
+<p>[11]<a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/945373740757.htm">https://www.chainnews.com/articles/945373740757.htm</a></p>
+<p>[12]<a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/970346326094.htm">https://www.chainnews.com/articles/970346326094.htm</a></p>
+<p>[13]<a target="_blank" rel="noopener" href="https://picture.iczhiku.com/weixin/message1625468135177.html">https://picture.iczhiku.com/weixin/message1625468135177.html</a></p>
+<p>[14]<a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/286073625676.htm">https://www.chainnews.com/articles/286073625676.htm</a></p>
+<p>[15]<a target="_blank" rel="noopener" href="https://www.jinse.com/blockchain/750777.html">https://www.jinse.com/blockchain/750777.html</a></p>
+<p>[16]<a target="_blank" rel="noopener" href="http://westar.io/blog/rollup/">http://westar.io/blog/rollup/</a></p>
+<p>[17]<a target="_blank" rel="noopener" href="https://www.jinse.com/blockchain/798070.html">https://www.jinse.com/blockchain/798070.html</a></p>
+<p>[18]<a target="_blank" rel="noopener" href="https://ethfans.org/posts/zkrollup-vs-validium-starkex">https://ethfans.org/posts/zkrollup-vs-validium-starkex</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2021/11/11/layer2/">Layer2技术方案调研</a></p>
+        <p><span>Author:</span>Rayleigh-Guan</p>
+        <p><span>Created:</span>2021-11-11, 16:24:28</p>
+        <p><span>Updated:</span>2021-11-15, 23:06:59</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2021/11/11/layer2/" title="Layer2技术方案调研">https://rayleigh-guan.github.io/2021/11/11/layer2/</a>
+            <span class="copy-path" data-clipboard-text="From https://rayleigh-guan.github.io/2021/11/11/layer2/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2021/11/11/Immutable-X/">
+                    Immutable-X
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2021/10/20/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/">
+                    跨链技术
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Layer%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">Layer的概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%89%A9%E5%AE%B9%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">为什么需要扩容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E4%B8%8D%E5%90%8C%E5%B1%82%E6%AC%A1%E7%9A%84%E6%89%A9%E5%AE%B9%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">当前不同层次的扩容方案：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%89%A9%E5%AE%B9%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">常见的扩容方案：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Layer2%E7%9A%84%E5%B8%B8%E8%A7%81%E6%89%A9%E5%AE%B9%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">Layer2的常见扩容方案：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E9%80%9A%E9%81%93%EF%BC%88State-channels%EF%BC%89%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">状态通道（State channels）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%80%A7%E5%92%8C%E9%99%90%E5%88%B6%EF%BC%9A"><span class="toc-number">4.1.1.</span> <span class="toc-text">特性和限制：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%A7%E9%93%BE%EF%BC%88Sidechains%EF%BC%89%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">侧链（Sidechains）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plasma%EF%BC%9A"><span class="toc-number">4.3.</span> <span class="toc-text">plasma：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rollups%EF%BC%9A"><span class="toc-number">4.4.</span> <span class="toc-text">Rollups：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#validium%EF%BC%9A"><span class="toc-number">4.5.</span> <span class="toc-text">validium：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#valitions%EF%BC%9A"><span class="toc-number">4.6.</span> <span class="toc-text">valitions：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+
+
+    
+        <section id="comments" style="margin: 2em; padding: 2em; background: rgba(255, 255, 255, 0.5)">
+    <div id="vcomment" class="comment"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@1.2.0-beta1/dist/Valine.min.js"></script>
+    <script>
+      new Valine({
+        el: '#vcomment',
+        notify: 'true',
+        verify: 'true',
+        app_id: "dKKUohnqbQTf4UXnuYuUgqwa-gzGzoHsz",
+        app_key: "YnG4XecexqwSglQGzuqViNBs",
+        placeholder: "Just go go!",
+        avatar: "mp"
+      });
+    </script>
+</section>
+```
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2021/11/11/Immutable-X/" title="Pre: Immutable-X">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2021/10/20/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/" title="Next: 跨链技术">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/11/12/Metaverse/">Metaverse</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/11/Immutable-X/">Immutable-X</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/11/layer2/">Layer2技术方案调研</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/20/%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF/">跨链技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/16/AxieInfinity/">AxieInfinity</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/15/%E9%80%89%E8%B0%83%E5%88%86%E4%BA%AB%E4%BA%A4%E6%B5%81%E4%BC%9A/">选调分享交流会</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/15/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">隐私计算</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2021-2022 Rayleigh Guan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
